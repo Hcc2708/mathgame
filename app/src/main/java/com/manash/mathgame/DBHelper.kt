@@ -22,14 +22,24 @@ class DBHelper(context: Context, factory: SQLiteDatabase.CursorFactory?) :
     fun addName(name : String, score : String ){
         val db = this.writableDatabase
 
-        val cursor = db.rawQuery("SELECT * FROM $TABLE_NAME WHERE $NAME_COl=?", arrayOf(name))
+        val cursor = db.rawQuery("SELECT $Score FROM $TABLE_NAME WHERE $NAME_COl=?", arrayOf(name))
 
         if (cursor.moveToFirst()) {
-            val values = ContentValues()
-            values.put(Score, score)
+            val getScoreColumnIndex = cursor.getColumnIndex(Score)
+            if(getScoreColumnIndex != -1) {
+                val existingScore = cursor.getString(getScoreColumnIndex).toDoubleOrNull() ?: 0.0
+                val newScore = score.toDoubleOrNull() ?: 0.0
 
-            db.update(TABLE_NAME, values, "$NAME_COl=?", arrayOf(name))
+                if (newScore > existingScore) {
+                    // Update the score only if the new score is greater than the existing score
+                    val values = ContentValues()
+                    values.put(Score, score)
+
+                    db.update(TABLE_NAME, values, "$NAME_COl=?", arrayOf(name))
+                }
+            }
         } else {
+            // Entry with the given name doesn't exist, insert a new one
             val values = ContentValues()
             values.put(NAME_COl, name)
             values.put(Score, score)
@@ -38,6 +48,7 @@ class DBHelper(context: Context, factory: SQLiteDatabase.CursorFactory?) :
         }
 
         cursor.close()
+        db.close()
     }
     fun getName(): Cursor? {
         val db = this.readableDatabase
