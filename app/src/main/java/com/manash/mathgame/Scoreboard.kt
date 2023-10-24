@@ -20,13 +20,14 @@ class Scoreboard : AppCompatActivity() {
         val db = DBHelper(this, null)
         val cursor = db.getName()
         cursor!!.moveToFirst()
-        while(cursor.moveToNext()){
+        while(!cursor.isAfterLast){
             val getNameColumIndex = cursor.getColumnIndex(DBHelper.NAME_COl)
             val getScoreColumIndex = cursor.getColumnIndex(DBHelper.Score)
             if(getNameColumIndex != -1 && getScoreColumIndex != -1)
             {
                 list.add(Dataset(cursor.getString(getNameColumIndex), cursor.getString(getScoreColumIndex)))
             }
+            cursor.moveToNext()
         }
         cursor.close()
         val adapter = CustomAdapter(this, android.R.layout.simple_list_item_1, list)

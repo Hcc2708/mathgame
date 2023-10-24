@@ -19,7 +19,7 @@ class CustomAdapter(var mCtx: Context, var resources:Int,
         val textView:TextView = view.findViewById(android.R.id.text1)
 
         val mItem:Dataset = items.get(position)
-        textView.text = mItem.name + "\t\t" + mItem.score
+        textView.text = mItem.name + "  " + mItem.score
         return view
     }
 

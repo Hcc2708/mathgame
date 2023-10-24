@@ -8,7 +8,7 @@ import android.database.sqlite.SQLiteOpenHelper
 class DBHelper(context: Context, factory: SQLiteDatabase.CursorFactory?) :
     SQLiteOpenHelper(context, DATABASE_NAME, factory, DATABASE_VERSION) {
     override fun onCreate(db: SQLiteDatabase) {
-        val query = ("CREATE TABLE IF NOT EXISTS" + TABLE_NAME + " ("
+        val query = ("CREATE TABLE " + TABLE_NAME + " ("
                 + ID_COL + " INTEGER PRIMARY KEY, " +
                 NAME_COl + " TEXT," +
                 Score + " TEXT" + ")")
@@ -16,6 +16,7 @@ class DBHelper(context: Context, factory: SQLiteDatabase.CursorFactory?) :
         db.execSQL(query)
      }
     override fun onUpgrade(db: SQLiteDatabase, p1: Int, p2: Int) {
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_NAME)
         onCreate(db)
     }
     fun addName(name : String, score : String ){
@@ -35,6 +36,7 @@ class DBHelper(context: Context, factory: SQLiteDatabase.CursorFactory?) :
     }
 
     fun updateCourse(
+
         name: String, age: String?
     ) {
         val db = this.writableDatabase
