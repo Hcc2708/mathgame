@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/bottom_sheet_exit_linear"
+    android:layout_width="match_parent"
+    android:gravity="center"
+    android:background="@drawable/scoreboardbg"
+    android:layout_height="match_parent">
+
+<LinearLayout
+android:layout_width="300dp"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:layout_marginBottom="70dp"
+    android:background="@drawable/card_round"
+    android:orientation="vertical">
+
+    <ImageButton
+        android:id="@+id/deletebtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:layout_marginLeft="40dp"
+        android:background="@drawable/ic_delete"
+        android:text="delete"
+
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#7CC5C5C5"
+
+        android:orientation="vertical">
+
+        <!-- exit the app textview -->
+
+
+        <!-- Alert Icon ImageView -->
+
+
+        <LinearLayout
+            android:layout_margin="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="0dp"
+            android:orientation="vertical"
+            android:weightSum="2">
+
+            <!-- No Text View -->
+
+
+            <!-- Yes Text View -->
+            <TextView
+                android:id="@+id/tvname"
+                android:background="@drawable/editext_1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="6dp"
+                android:hint="text"
+                android:gravity="center"
+                android:textColor="@color/colorPrimaryDark"
+                android:textStyle="bold"
+                android:textSize="20sp"/>
+            <TextView
+                android:layout_marginTop="30dp"
+                android:id="@+id/tvresult"
+                android:background="@drawable/editext_1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="text"
+                android:textColor="@color/colorPrimary"
+                android:padding="6dp"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:textSize="20sp"/>
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>
+    </LinearLayout>
+
+
+
+
+
+
+

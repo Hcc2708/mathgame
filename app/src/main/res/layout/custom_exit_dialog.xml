@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/bottom_sheet_exit_linear"
+    android:layout_width="300dp"
+    android:layout_height="wrap_content"
+
+    android:background="@drawable/card_round"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#7CC5C5C5"
+        android:orientation="vertical">
+
+        <!-- exit the app textview -->
+        <TextView
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+
+            android:fontFamily="sans-serif-medium"
+            android:gravity="center"
+            android:text="Exit ?"
+            android:textSize="20dp"
+            android:textStyle="bold" />
+
+        <!-- Alert Icon ImageView -->
+
+
+        <LinearLayout
+            android:layout_margin="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="0dp"
+            android:orientation="vertical"
+            android:weightSum="2">
+
+            <!-- No Text View -->
+
+
+            <!-- Yes Text View -->
+            <TextView
+                android:id="@+id/textViewYes"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                android:layout_weight="1"
+                android:background="@drawable/card_round"
+                android:backgroundTint="#FD0001"
+                android:elevation="8dp"
+                android:gravity="center"
+                android:text="Yes"
+                android:textStyle="bold"
+                android:textColor="@color/white" />
+            <TextView
+                android:id="@+id/textViewNo"
+                android:layout_width="match_parent"
+                android:layout_height="46dp"
+                android:layout_gravity="center"
+                android:layout_margin="20dp"
+                android:layout_weight="1"
+                android:background="@drawable/card_round"
+                android:backgroundTint="#2196F3"
+                android:elevation="8dp"
+                android:gravity="center"
+                android:text="NO"
+                android:textStyle="bold"
+                android:textColor="@color/white" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>
