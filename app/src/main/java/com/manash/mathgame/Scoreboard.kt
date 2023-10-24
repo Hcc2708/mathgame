@@ -29,7 +29,7 @@ class Scoreboard : AppCompatActivity() {
             }
         }
         cursor.close()
-        val adapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, list)
+        val adapter = CustomAdapter(this, android.R.layout.simple_list_item_1, list)
         lv.adapter = adapter
         lv.setOnItemClickListener { parent, view, position, id ->
             val intValue = id.toInt()
